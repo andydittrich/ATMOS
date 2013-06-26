@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:wms="http://www.opengis.net/wms" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="http://schemas.opengis.net/xlink/1.0.0/xlinks.xsd"/>
+  <xs:element name="KeywordList">
+    <xs:annotation>
+      <xs:documentation>
+        List of keywords or keyword phrases to help catalog searching.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Keyword" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Keyword">
+    <xs:annotation>
+      <xs:documentation>
+        A single keyword or phrase.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="vocabulary" type="xs:string"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OnlineResource">
+    <xs:annotation>
+      <xs:documentation>
+        An OnlineResource is typically an HTTP URL.  The URL is placed in
+        the xlink:href attribute, and the value "simple" is placed in the
+        xlink:type attribute.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:attributeGroup ref="xlink:simpleLink"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DCPType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="HTTP">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Get">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="OnlineResource"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Post">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="OnlineResource"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Format" type="xs:string">
+    <xs:annotation>
+      <xs:documentation>
+        A container for listing an available format's MIME type.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:element name="Layer">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Title" type="xs:string" minOccurs="0" />
+        <xs:element name="SRS" type="xs:string" minOccurs="0" />
+        <xs:element name="Name" type="xs:string" minOccurs="0" />
+        <xs:element name="Abstract" type="xs:string" minOccurs="0" />
+        <xs:element name="Dimension" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="name" type="xs:string" />
+            <xs:attribute name="units" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Extent" nillable="true" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent msdata:ColumnName="Extent_Text" >
+              <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" />
+                <xs:attribute name="default" type="xs:string" />
+                <xs:attribute name="nearestValue" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="KeywordList" minOccurs="0"/>
+        <xs:element name="Identifier" nillable="true" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:simpleContent msdata:ColumnName="Identifier_Text" >
+              <xs:extension base="xs:string">
+                <xs:attribute name="authority" type="xs:string" />
+              </xs:extension>
+            </xs:simpleContent>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MetadataURL" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Format"/>
+              <xs:element ref="OnlineResource"/>
+            </xs:sequence>
+            <xs:attribute name="type" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Style" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Abstract" type="xs:string" minOccurs="0" />
+              <xs:element name="LegendURL">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="Format"/>
+                    <xs:element ref="OnlineResource"/>
+                  </xs:sequence>
+                  <xs:attribute name="width" type="xs:string" />
+                  <xs:attribute name="height" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="StyleSheetURL">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="Format"/>
+                    <xs:element ref="OnlineResource"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="LatLonBoundingBox" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="minx" type="xs:string" />
+            <xs:attribute name="miny" type="xs:string" />
+            <xs:attribute name="maxx" type="xs:string" />
+            <xs:attribute name="maxy" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="BoundingBox" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="SRS" type="xs:string" />
+            <xs:attribute name="minx" type="xs:string" />
+            <xs:attribute name="miny" type="xs:string" />
+            <xs:attribute name="maxx" type="xs:string" />
+            <xs:attribute name="maxy" type="xs:string" />
+            <xs:attribute name="resx" type="xs:string" />
+            <xs:attribute name="resy" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Attribution">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Title" type="xs:string" minOccurs="0" />
+              <xs:element ref="OnlineResource"/>
+              <xs:element name="LogoURL">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="Format"/>
+                    <xs:element ref="OnlineResource"/>
+                  </xs:sequence>
+                  <xs:attribute name="width" type="xs:string" />
+                  <xs:attribute name="height" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FeatureListURL">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="Format"/>
+              <xs:element ref="OnlineResource"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ScaleHint" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:attribute name="min" type="xs:string" />
+            <xs:attribute name="max" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+        <xs:element ref="Layer" minOccurs="0" maxOccurs="unbounded" />
+        <xs:element name="AuthorityURL">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="OnlineResource"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="queryable" type="xs:string" />
+      <xs:attribute name="opaque" type="xs:string" />
+      <xs:attribute name="noSubsets" type="xs:string" />
+      <xs:attribute name="fixedWidth" type="xs:string" />
+      <xs:attribute name="fixedHeight" type="xs:string" />
+      <xs:attribute name="cascaded" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WMT_MS_Capabilities">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Service">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Title" type="xs:string" minOccurs="0" />
+              <xs:element name="Abstract" type="xs:string" minOccurs="0" />
+              <xs:element name="Fees" type="xs:string" minOccurs="0" />
+              <xs:element name="AccessConstraints" type="xs:string" minOccurs="0" />
+              <xs:element ref="KeywordList" minOccurs="0"/>
+              <xs:element ref="OnlineResource"/>
+              <xs:element name="ContactInformation">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="ContactPosition" type="xs:string" minOccurs="0" />
+                    <xs:element name="ContactVoiceTelephone" type="xs:string" minOccurs="0" />
+                    <xs:element name="ContactFacsimileTelephone" type="xs:string" minOccurs="0" />
+                    <xs:element name="ContactElectronicMailAddress" type="xs:string" minOccurs="0" />
+                    <xs:element name="ContactPersonPrimary">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="ContactPerson" type="xs:string" minOccurs="0" />
+                          <xs:element name="ContactOrganization" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="ContactAddress">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="AddressType" type="xs:string" minOccurs="0" />
+                          <xs:element name="Address" type="xs:string" minOccurs="0" />
+                          <xs:element name="City" type="xs:string" minOccurs="0" />
+                          <xs:element name="StateOrProvince" type="xs:string" minOccurs="0" />
+                          <xs:element name="PostCode" type="xs:string" minOccurs="0" />
+                          <xs:element name="Country" type="xs:string" minOccurs="0" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Capability">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VendorSpecificCapabilities" type="xs:string" minOccurs="0" />
+              <xs:element name="Request">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="GetCapabilities">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Format" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element ref="DCPType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="GetMap">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Format" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element ref="DCPType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="GetFeatureInfo">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Format" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element ref="DCPType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element name="DescribeLayer">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="Format" minOccurs="0" maxOccurs="unbounded" />
+                          <xs:element ref="DCPType" minOccurs="0" maxOccurs="unbounded" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Exception">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="Format" minOccurs="0" maxOccurs="unbounded" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="UserDefinedSymbolization" minOccurs="0" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:attribute name="SupportSLD" type="xs:string" />
+                  <xs:attribute name="UserLayer" type="xs:string" />
+                  <xs:attribute name="UserStyle" type="xs:string" />
+                  <xs:attribute name="RemoteWFS" type="xs:string" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element ref="Layer" minOccurs="0" maxOccurs="unbounded" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" />
+      <xs:attribute name="updateSequence" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="KeywordList" />
+        <xs:element ref="OnlineResource" />
+        <xs:element ref="DCPType" />
+        <xs:element ref="Format" />
+        <xs:element ref="Layer" />
+        <xs:element ref="WMT_MS_Capabilities" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

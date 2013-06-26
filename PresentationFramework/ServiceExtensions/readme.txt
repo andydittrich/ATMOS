@@ -1,0 +1,1 @@
+Put MEF enabled assemblies that implement the IMapService or ITabularDataService interfaces in this folder to support additional services.

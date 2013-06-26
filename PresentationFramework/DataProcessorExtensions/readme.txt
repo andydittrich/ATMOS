@@ -1,0 +1,1 @@
+Put MEF enabled assemblies that implement the ITableCombiner interface in this folder to support additional data combination methods.

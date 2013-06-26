@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding="ISO-8859-1" standalone="no" ?>
+<!DOCTYPE WMT_MS_Capabilities SYSTEM "http://schemas.opengis.net/wms/1.1.1/WMS_MS_Capabilities.dtd"
+ [
+ <!ELEMENT VendorSpecificCapabilities EMPTY>
+ ]>  <!-- end of DOCTYPE declaration -->
+
+<WMT_MS_Capabilities version="1.1.1">
+
+<!-- MapServer version 5.6.6 OUTPUT=GIF OUTPUT=PNG OUTPUT=JPEG OUTPUT=WBMP OUTPUT=SWF OUTPUT=SVG SUPPORTS=PROJ SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=ICONV SUPPORTS=FRIBIDI SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=FASTCGI SUPPORTS=THREADS SUPPORTS=GEOS SUPPORTS=RGBA_PNG INPUT=EPPL7 INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE -->
+
+<Service>
+  <Name>OGC:WMS</Name>
+  <Title>RGIS Dataset</Title>
+  <Abstract>WMS service for RGIS Dataset(s) MRCOG10</Abstract>
+        <KeywordList>
+          <Keyword>RGIS</Keyword>
+          <Keyword> New Mexico</Keyword>
+        </KeywordList>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/>
+  <ContactInformation>
+    <ContactPersonPrimary>
+      <ContactPerson>Renzo Sanchez-Silva</ContactPerson>
+      <ContactOrganization>Earth Data Analysis Center, University of New Mexico</ContactOrganization>
+    </ContactPersonPrimary>
+      <ContactPosition>Analyst/Programmer</ContactPosition>
+    <ContactAddress>
+        <AddressType>Mailing address</AddressType>
+        <Address>Earth Data Analysis Center, MSC01 1110, 1 University of New Mexico</Address>
+        <City>Albuquerque</City>
+        <StateOrProvince>NM</StateOrProvince>
+        <PostCode>87131</PostCode>
+        <Country>US</Country>
+    </ContactAddress>
+      <ContactVoiceTelephone>(505) 277-3622 x240</ContactVoiceTelephone>
+      <ContactFacsimileTelephone>(505) 277-3614</ContactFacsimileTelephone>
+  <ContactElectronicMailAddress>renzo@edac.unm.edu</ContactElectronicMailAddress>
+  </ContactInformation>
+  <Fees>none</Fees>
+  <AccessConstraints>none</AccessConstraints>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>application/vnd.ogc.wms_xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/jpeg</Format>
+      <Format>image/png</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=24bit</Format>
+      <Format>image/vnd.wap.wbmp</Format>
+      <Format>image/tiff</Format>
+      <Format>image/svg+xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/plain</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+    <DescribeLayer>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </DescribeLayer>
+    <GetLegendGraphic>
+      <Format>image/jpeg</Format>
+      <Format>image/png</Format>
+      <Format>image/gif</Format>
+      <Format>image/png; mode=24bit</Format>
+      <Format>image/vnd.wap.wbmp</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetLegendGraphic>
+    <GetStyles>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetStyles>
+  </Request>
+  <Exception>
+    <Format>application/vnd.ogc.se_xml</Format>
+    <Format>application/vnd.ogc.se_inimage</Format>
+    <Format>application/vnd.ogc.se_blank</Format>
+  </Exception>
+  <VendorSpecificCapabilities />
+  <UserDefinedSymbolization SupportSLD="1" UserLayer="0" UserStyle="1" RemoteWFS="0"/>
+  <Layer>
+    <Name>RGISMap</Name>
+    <Title>RGIS Dataset</Title>
+    <Abstract>WMS service for RGIS Dataset(s) MRCOG10</Abstract>
+    <KeywordList>
+     <Keyword>RGIS</Keyword>
+     <Keyword> New Mexico</Keyword>
+    </KeywordList>
+    <SRS>EPSG:4326</SRS>
+    <SRS>EPSG:4269</SRS>
+    <SRS>EPSG:4267</SRS>
+    <SRS>EPSG:2903</SRS>
+    <SRS>EPSG:26912</SRS>
+    <SRS>EPSG:26913</SRS>
+    <SRS>EPSG:26914</SRS>
+    <SRS>EPSG:26713</SRS>
+    <SRS>EPSG:26712</SRS>
+    <SRS>EPSG:26714</SRS>
+    <LatLonBoundingBox minx="-107.221" miny="34.2469" maxx="-105.972" maxy="35.6434" />
+    <BoundingBox SRS="EPSG:2903"
+                minx="1.35203e+06" miny="1.18257e+06" maxx="1.72307e+06" maxy="1.68945e+06" />
+    <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>mrcog10_idx</Name>
+        <Title>mrcog10_idx</Title>
+        <SRS>EPSG:2903</SRS>
+        <LatLonBoundingBox minx="-107.212" miny="34.2502" maxx="-105.976" maxy="35.6396" />
+        <BoundingBox SRS="EPSG:2903"
+                    minx="1.35449e+06" miny="1.18377e+06" maxx="1.72169e+06" maxy="1.68808e+06" />
+        <Style>
+          <Name>default</Name>
+          <Title>default</Title>
+          <LegendURL width="357" height="23">
+             <Format>image/png</Format>
+             <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://gstore.unm.edu/apps/rgis/datasets/118650/services/ogc/wms?version=1.1.1&amp;service=WMS&amp;request=GetLegendGraphic&amp;layer=mrcog10_idx&amp;format=image/png&amp;STYLE=default"/>
+          </LegendURL>
+        </Style>
+    </Layer>
+    <Layer queryable="1" opaque="0" cascaded="0">
+        <Name>mrcog10</Name>
+        <Title>mrcog10</Title>
+        <SRS>EPSG:2903</SRS>
+        <!-- WARNING: Optional LatLonBoundingBox could not be established for this layer.  Consider setting the EXTENT in the LAYER object, or wms_extent metadata. Also check that your data exists in the DATA statement -->
+        <ScaleHint min="0.174615996950373" max="11.9736683623113" />
+    </Layer>
+  </Layer>
+</Capability>
+</WMT_MS_Capabilities>

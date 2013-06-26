@@ -1,0 +1,1 @@
+xsd schemas\cuahsiTimeSeries_v1_1.xsd /language:CS /namespace:UsgsWaterData /classes
