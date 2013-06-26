@@ -1,0 +1,5 @@
+ATMOS is a data collection and presentation toolkit for the Nevada Climate Change Portal (http://sensor.nevada.edu/).  It is an ASP.NET application that supports collection of climate change data from multiple sources through several plugins.  These data sources appear uniform to the end user, who accesses data through a web front end.  Additional plugins can be written to extend the toolkit.
+
+This work was developed by Andrew Dittrich as part of a Master's Thesis at the University of Nevada, Reno.  For more details, see the thesis titled "ATMOS: A Data Collection and Presentation Toolkit for the Nevada Climate Change Portal".
+
+Note that in PresentationFramework\Scripts\BingMap.js, you will need to enter your Bing map credentials around line 12
